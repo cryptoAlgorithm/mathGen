@@ -1,6 +1,6 @@
 const $ = (e) => { return document.getElementById(e) }
 
-const VERSION_CODE = "0.1.1"
+const VERSION_CODE = "0.1.2"
 
 // Set up onclick listeners
 $('more-info').onclick = () => {
