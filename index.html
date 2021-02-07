@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Math Quadratic Equation Generator</title>
+
+    <!-- MDC Components -->
+    <script src="assets/material-components.min.js" defer></script>
+    <script src="assets/init.min.js" defer></script> <!-- MDC auto-init -->
+    <link rel="stylesheet" href="assets/material-components.min.css">
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="assets/index.min.css">
+
+    <!-- Scripts -->
+    <script src="assets/app.min.js" defer></script>
+
+    <!-- Preload important assets -->
+    <link rel="prefetch" href="assets/img/main-bg.webp">
+
+    <!-- Roboto and Roboto Slab font --><link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<!------>
+<body class="mdc-typography">
+<!-- Tooltips -->
+<div id="fab-tooltip" class="mdc-tooltip" role="tooltip" aria-hidden="true" data-mdc-auto-init="MDCTooltip">
+    <div class="mdc-tooltip__surface">
+        Learn more about this tool
+    </div>
+</div>
+<!------>
+<!-- More info FAB -->
+<button class="mdc-fab hover-fab" aria-label="Learn more about this tool" data-mdc-auto-init="MDCRipple" id="more-info"
+        aria-describedby="fab-tooltip">
+    <div class="mdc-fab__ripple"></div>
+    <span class="mdc-fab__icon material-icons">info</span>
+</button>
+<!------>
+<!-- Content root -->
+<div class="root center-self">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Types to generate -->
+        <h3 class="margin-left-20 margin-right-20 margin-bottom-0">Factorisation Methods</h3>
+        <!------>
+        <hr class="margin-bottom-0">
+        <!------>
+        <ul class="mdc-list mdc-menu__items" data-mdc-auto-init="MDCList">
+            <li class="mdc-list-item" role="option" tabindex="0">
+                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
+                    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               id="checkbox-1"/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                      fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                        <div class="mdc-checkbox__ripple"></div>
+                    </div>
+                    <label for="checkbox-1">Common Factor</label>
+                </div>
+            </li>
+            <li class="mdc-list-item" role="option">
+                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
+                    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               id="checkbox-2"/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                      fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                        <div class="mdc-checkbox__ripple"></div>
+                    </div>
+                    <label for="checkbox-2">Grouping</label>
+                </div>
+            </li>
+            <li class="mdc-list-item" role="option">
+                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
+                    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               id="checkbox-3"/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                      fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                        <div class="mdc-checkbox__ripple"></div>
+                    </div>
+                    <label for="checkbox-3">Perfect Square</label>
+                </div>
+            </li>
+            <li class="mdc-list-item" role="option">
+                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
+                    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               id="checkbox-4"/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                      fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                        <div class="mdc-checkbox__ripple"></div>
+                    </div>
+                    <label for="checkbox-4">Trinomal</label>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- Main content starts here -->
+    <main>
+        <!------>
+        <!-- More info dialog -->
+        <div class="mdc-dialog" data-mdc-auto-init="MDCDialog" id="more-info-dialog">
+            <div class="mdc-dialog__container">
+                <div class="mdc-dialog__surface"
+                     role="alertdialog"
+                     aria-modal="true"
+                     aria-describedby="more-info-content">
+                    <div class="mdc-dialog__content text-centered" id="more-info-content" style="padding-bottom:10px">
+                        <h3><b>More Info</b></h3>
+                        <!------>
+                        <p>Select one of the options below</p>
+                        <!------>
+                        <ul class="mdc-list" data-mdc-auto-init="MDCList">
+                            <li class="mdc-list-item" tabindex="0" data-mdc-dialog-action="settings" data-mdc-auto-init="MDCRipple">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text">Settings</span>
+                            </li>
+                            <li class="mdc-list-item" data-mdc-dialog-action="credits" data-mdc-auto-init="MDCRipple">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text">Credits</span>
+                            </li>
+                        </ul>
+                        <!------>
+                        <small id="app-ver" class="display-block text-centered margin-left-10 margin-right-10">Loading version...</small>
+                    </div>
+                    <div class="mdc-dialog__actions margin-right-10 margin-left-10 margin-bottom-10">
+                        <button class="mdc-button mdc-button--outlined width-100 mdc-dialog__button" data-mdc-dialog-action="close">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mdc-dialog__scrim"></div>
+        </div>
+        <!------>
+        <h2 class="mdc-typography--headline4 margin-top-0 margin-bottom-0"><b>Math Quadratic Equation Generator</b></h2>
+        <!------>
+        <div class="mount">
+            <!------>
+            <div class="adjustment">
+                <h3>Generation Options</h3>
+                <!------>
+                <p>Number of questions to generate (1 - 1000)</p>
+                <label class="mdc-text-field mdc-text-field--outlined width-100" data-mdc-auto-init="MDCTextField">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="num_gen">Questions to be generated</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="number" class="mdc-text-field__input" aria-labelledby="num_gen" min="1" max="1000">
+                </label>
+                <!------>
+                <p>Range of answers (-300 to 300)</p>
+                <label class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="ans-min">Min</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="number" class="mdc-text-field__input" aria-labelledby="ans-min" style="width:30px" min="-300" max="300">
+                </label>
+                <!------>
+                <p class="display-inline"><b>&nbsp;to&nbsp;</b></p>
+                <!------>
+                <label class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="ans-max">Max</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="number" class="mdc-text-field__input" aria-labelledby="ans-max" style="width:30px" min="-300" max="300">
+                </label>
+                <!------>
+            </div>
+            <!------>
+            <div class="results">
+                <!-- More options -->
+                <h3>Result Options</h3>
+                <div class="mdc-switch" data-mdc-auto-init="MDCSwitch">
+                    <div class="mdc-switch__track"></div>
+                    <div class="mdc-switch__thumb-underlay">
+                        <div class="mdc-switch__thumb"></div>
+                        <input type="checkbox" id="no-format" class="mdc-switch__native-control" role="switch" aria-checked="false">
+                    </div>
+                </div>
+                <label for="no-format">Output text only</label>
+                <!------>
+                <p>Items to be included in formatted output:</p>
+                <div class="mdc-chip-set mdc-chip-set--filter" role="grid" data-mdc-auto-init="MDCChipSet">
+                    <!-- Name -->
+                    <div class="mdc-chip" role="row">
+                        <div class="mdc-chip__ripple"></div>
+                        <span class="mdc-chip__checkmark" >
+                            <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                                <path class="mdc-chip__checkmark-path" fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                        </span>
+                        <span role="gridcell">
+                            <span role="checkbox" tabindex="0" aria-checked="false" class="mdc-chip__primary-action">
+                                <span class="mdc-chip__text">Name field</span>
+                            </span>
+                        </span>
+                    </div>
+                    <!-- Numbers -->
+                    <div class="mdc-chip" role="row">
+                        <div class="mdc-chip__ripple"></div>
+                        <span class="mdc-chip__checkmark" >
+                            <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                                <path class="mdc-chip__checkmark-path" fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                        </span>
+                        <span role="gridcell">
+                            <span role="checkbox" tabindex="0" aria-checked="false" class="mdc-chip__primary-action">
+                                <span class="mdc-chip__text">Question numbers</span>
+                            </span>
+                        </span>
+                    </div>
+                    <!-- Header -->
+                    <div class="mdc-chip" role="row">
+                        <div class="mdc-chip__ripple"></div>
+                        <span class="mdc-chip__checkmark" >
+                            <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                                <path class="mdc-chip__checkmark-path" fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                        </span>
+                        <span role="gridcell">
+                            <span role="checkbox" tabindex="0" aria-checked="false" class="mdc-chip__primary-action">
+                                <span class="mdc-chip__text">Header</span>
+                            </span>
+                        </span>
+                    </div>
+                    <!-- Footer -->
+                    <div class="mdc-chip" role="row">
+                        <div class="mdc-chip__ripple"></div>
+                        <span class="mdc-chip__checkmark" >
+                            <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                                <path class="mdc-chip__checkmark-path" fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                        </span>
+                        <span role="gridcell">
+                            <span role="checkbox" tabindex="0" aria-checked="false" class="mdc-chip__primary-action">
+                                <span class="mdc-chip__text">Footer</span>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <!-- Generate button -->
+                <button class="mdc-button mdc-button--raised display-block margin-top-20 width-100" data-mdc-auto-init="MDCRipple">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">Generate Questions</span>
+                </button>
+                <div class="mdc-card width-100 margin-top-10">
+                    <p>No results yet</p>
+                </div>
+            </div>
+            <!------>
+        </div>
+    </main>
+</div>
+</body>
+</html>

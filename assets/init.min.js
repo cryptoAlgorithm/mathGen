@@ -1,0 +1,1 @@
+window.mdc.autoInit();
