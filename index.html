@@ -170,22 +170,77 @@
                      aria-modal="true"
                      aria-describedby="more-info-content">
                     <div class="mdc-dialog__content text-centered" id="more-info-content" style="padding-bottom:10px">
-                        <h3><b>More Info</b></h3>
+                        <i class="material-icons font-size-75">info</i>
+                        <h3 class="margin-top-0"><b>More Information</b></h3>
                         <!------>
                         <p class="margin-bottom-0">Select one of the options below</p>
                         <!------>
                         <ul class="mdc-list" data-mdc-auto-init="MDCList">
                             <li class="mdc-list-item" tabindex="0" data-mdc-dialog-action="settings" data-mdc-auto-init="MDCRipple">
                                 <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__graphic material-icons" aria-hidden="true">settings</span>
                                 <span class="mdc-list-item__text">Settings</span>
                             </li>
+                            <li role="separator" class="mdc-list-divider"></li>
                             <li class="mdc-list-item" data-mdc-dialog-action="credits" data-mdc-auto-init="MDCRipple">
                                 <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__graphic material-icons" aria-hidden="true">attribution</span>
                                 <span class="mdc-list-item__text">Credits</span>
                             </li>
                         </ul>
                         <!------>
                         <small id="app-ver" class="display-block text-centered margin-left-10 margin-right-10">Loading version...</small>
+                    </div>
+                    <div class="mdc-dialog__actions margin-right-10 margin-left-10 margin-bottom-10">
+                        <button class="mdc-button mdc-button--outlined width-100 mdc-dialog__button" data-mdc-dialog-action="close">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mdc-dialog__scrim"></div>
+        </div>
+        <!-- Settings dialog -->
+        <div class="mdc-dialog" data-mdc-auto-init="MDCDialog" id="settings-dialog">
+            <div class="mdc-dialog__container">
+                <div class="mdc-dialog__surface"
+                     role="alertdialog"
+                     aria-modal="true"
+                     aria-describedby="settings-content">
+                    <div class="mdc-dialog__content text-centered" id="settings-content" style="padding-bottom:10px">
+                        <i class="material-icons font-size-75">settings</i>
+                        <h3 class="margin-top-0"><b>Settings</b></h3>
+                        <!------>
+                        <p class="margin-bottom-0">Nothing here yet!</p>
+                    </div>
+                    <div class="mdc-dialog__actions margin-right-10 margin-left-10 margin-bottom-10">
+                        <button class="mdc-button mdc-button--outlined width-100 mdc-dialog__button" data-mdc-dialog-action="close">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mdc-dialog__scrim"></div>
+        </div>
+        <!-- Credits dialog -->
+        <div class="mdc-dialog" data-mdc-auto-init="MDCDialog" id="credits-dialog">
+            <div class="mdc-dialog__container">
+                <div class="mdc-dialog__surface"
+                     role="alertdialog"
+                     aria-modal="true"
+                     aria-describedby="credits-content">
+                    <div class="mdc-dialog__content text-centered" id="credits-content" style="padding-bottom:10px">
+                        <i class="material-icons font-size-75">attribution</i>
+                        <h3 class="margin-top-0"><b>Credits</b></h3>
+                        <!------>
+                        <p class="margin-bottom-0">Frontend UI programmed by Vincent Kwok</p>
+                        <hr>
+                        <p class="margin-bottom-0">
+                            Generation functions programmed by Wang Zerui and Ding Chenghao, edited by Vincent Kwok
+                        </p>
+                        <!------>
                     </div>
                     <div class="mdc-dialog__actions margin-right-10 margin-left-10 margin-bottom-10">
                         <button class="mdc-button mdc-button--outlined width-100 mdc-dialog__button" data-mdc-dialog-action="close">

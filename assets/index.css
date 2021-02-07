@@ -58,6 +58,7 @@ body {
     --mdc-typography-headline1-font-family: 'Roboto Slab', 'Roboto';
     --mdc-shape-small: 7px;
     --mdc-theme-text-primary-on-background: rgba(255, 255, 255, .87);
+    --mdc-theme-text-icon-on-background: var(--content-text-color);
 }
 
 h1, h2 {
@@ -195,6 +196,10 @@ hr {
 .width-100 {
     width: 100%;
 }
+/* Font sizes */
+.font-size-75 {
+    font-size: 75px;
+}
 /* Alignment */
 .text-centered {
     text-align: center;
@@ -322,6 +327,10 @@ input[type=number] {
 }
 .mdc-chip__text {
     user-select: none;
+}
+/* Divider */
+.mdc-list-divider {
+    border-color: var(--sep-border-color);
 }
 
 /* ====== Custom scrollbar ======= */

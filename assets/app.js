@@ -1,13 +1,20 @@
 const $ = (e) => { return document.getElementById(e) }
 
-const VERSION_CODE = "0.1.2"
+const VERSION_CODE = "0.1.3"
 
 // Set up onclick listeners
 $('more-info').onclick = () => {
     const dialog = $('more-info-dialog').MDCDialog;
     dialog.open();
     dialog.listen('MDCDialog:closed', e => {
-        console.log(e.detail.action);
+        switch (e.detail.action) {
+            case 'credits':
+                $('credits-dialog').MDCDialog.open();
+                break;
+            case 'settings':
+                $('settings-dialog').MDCDialog.open();
+                break;
+        }
     })
 }
 
