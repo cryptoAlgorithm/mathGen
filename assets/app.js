@@ -1,10 +1,14 @@
 const $ = (e) => { return document.getElementById(e) }
 
-const VERSION_CODE = "0.1.0"
+const VERSION_CODE = "0.1.1"
 
 // Set up onclick listeners
 $('more-info').onclick = () => {
-    $('more-info-dialog').MDCDialog.open();
+    const dialog = $('more-info-dialog').MDCDialog;
+    dialog.open();
+    dialog.listen('MDCDialog:closed', e => {
+        console.log(e.detail.action);
+    })
 }
 
 // Display app version

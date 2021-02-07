@@ -49,7 +49,7 @@ body {
     --window-border-radius: 9px;
     /* MDC Customisation vars */
     --mdc-checkbox-unchecked-color: #aaa;
-    --mdc-theme-primary: #1976d2;
+    --mdc-theme-primary: #2295fc;
     --mdc-theme-secondary: #9c27b0;
     --mdc-theme-surface: #333;
     --mdc-typography-headline4-font-family: 'Roboto Slab', 'Roboto';
@@ -293,6 +293,10 @@ input[type=number] {
 .mdc-button--outlined:not(:disabled) {
     border-color: var(--sep-border-color);
 }
+/* Raised buttons */
+.mdc-button.mdc-button--raised {
+    --mdc-theme-primary: #1976d2;
+}
 /* Ripple */
 :not(.mdc-list-item--disabled).mdc-evolution-list-item .mdc-list-item__ripple::after,
 :not(.mdc-list-item--disabled).mdc-evolution-list-item .mdc-list-item__ripple::before,
@@ -304,6 +308,20 @@ input[type=number] {
 /* List */
 .mdc-list-item {
     border-radius: var(--mdc-shape-small);
+}
+/* Filled text fields */
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+    border-bottom-color: var(--sep-border-color);
+    transition: border-bottom-color 150ms ease-in-out;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before {
+    border-bottom-color: var(--mdc-theme-text-primary-on-background);
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--mdc-theme-surface);
+}
+.mdc-chip__text {
+    user-select: none;
 }
 
 /* ====== Custom scrollbar ======= */
