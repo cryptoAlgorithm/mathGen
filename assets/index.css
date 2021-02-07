@@ -82,6 +82,7 @@ h3 {
     height: 80vh;
     background-color: transparent;
     border-radius: var(--window-border-radius, 10px);
+    max-width: 1000px;
     overflow: hidden;
     box-shadow: 15px 15px 25px 0 rgba(0, 0, 0, .2),
     -15px -15px 25px 0 rgba(0, 0, 0, .2);
