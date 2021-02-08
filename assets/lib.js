@@ -216,10 +216,10 @@ function _grouping() {
         x = randrange(MIN_RANGE, MAX_RANGE);
         y = randrange(MIN_RANGE, MAX_RANGE);
 
-        while (a === 0) a = randrange(MIN_RANGE, MAX_RANGE)
-        while (b === 0) b = randrange(MIN_RANGE, MAX_RANGE)
-        while (x === 0) x = randrange(MIN_RANGE, MAX_RANGE)
-        while (y === 0) y = randrange(MIN_RANGE, MAX_RANGE)
+        while (a === 0) a = randrange(MIN_RANGE, MAX_RANGE);
+        while (b === 0) b = randrange(MIN_RANGE, MAX_RANGE);
+        while (x === 0) x = randrange(MIN_RANGE, MAX_RANGE);
+        while (y === 0) y = randrange(MIN_RANGE, MAX_RANGE);
     }
 
 
@@ -273,3 +273,52 @@ function common_trinomial() {
 
 // Testing
 for (let i = 0; i < 10; i++) console.log(common_trinomial());
+
+// ========================
+// perfect_square.py
+
+function _perfect_square() {
+    let a = 0; let b = 0; let c = 0;
+    while (a === 0 || b === 0 || c === 0 || gcd(a, gcd(b, c)) !== 1) {
+        const x = randrange(MIN_RANGE, MAX_RANGE);
+        const y = randrange(MIN_RANGE, MAX_RANGE);
+        a = x ** 2;
+        b = 2 * x * y;
+        c = y ** 2;
+    }
+
+    let two_var = false;
+    let use_vars;
+    if (randrange(2) === 1) {
+        use_vars = sample(vars, 2);
+        two_var = true;
+    }
+    else {
+        use_vars = sample(vars, 1);
+        use_vars.push(randrange(0, 10).toString());
+    }
+
+    return {a, b, c, use_vars, two_var};
+}
+
+
+function perfect_square(a, b, c, use_vars, two_var) {
+    a = format_coeff1(a);
+    b = format_coeff2(b);
+    let qn = ""
+    if (two_var) {
+        c = format_coeff2(c);
+        qn = `${a}${use_vars[0]}²${b}${use_vars[0]}${use_vars[1]}${c}${use_vars[1]}² = 0`;
+    }
+    else  {
+        c = format_coeff3(c);
+        qn = `${a}${use_vars[0]}²${b}${use_vars[0]}${c} = 0`;
+    }
+
+    return qn
+}
+
+for (let i = 0; i < 10; i++) {
+    const {a, b, c, use_vars, two_var} = _perfect_square();
+    console.log(perfect_square(a, b, c, use_vars, two_var));
+}
