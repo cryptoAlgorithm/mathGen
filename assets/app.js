@@ -1,5 +1,12 @@
 const $ = (e) => { return document.getElementById(e) }
 
+const resetFactOps = () => {
+    $('grp').checked = false;
+    $('per-sq').checked = false;
+    $('tri').checked = false;
+    $('general-form').checked = false;
+}
+
 const VERSION_CODE = "0.1.3"
 
 // Set up onclick listeners

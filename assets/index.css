@@ -52,7 +52,7 @@ body {
     /* MDC Customisation vars */
     --mdc-checkbox-unchecked-color: #aaa;
     --mdc-theme-primary: #2295fc;
-    --mdc-theme-secondary: #9c27b0;
+    --mdc-theme-secondary: #ae3dc6;
     --mdc-theme-surface: #333;
     --mdc-typography-headline4-font-family: 'Roboto Slab', 'Roboto';
     --mdc-typography-headline3-font-family: 'Roboto Slab', 'Roboto';
@@ -151,6 +151,7 @@ main {
     left: 0;
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     overflow-x: hidden; /* Disable horizontal scroll */
     overflow-y: auto;
 }
@@ -212,6 +213,16 @@ hr {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+/* Bigger dialog */
+
+.expanded-dialog.mdc-dialog .mdc-dialog__surface {
+    min-width: 100%;
+    min-height: 80%;
+}
+.expanded-dialog.mdc-dialog > .mdc-dialog__container {
+    min-width: 85%;
 }
 
 /* Customise native elements so that they don't look like windows 95 */
@@ -290,6 +301,7 @@ input[type=number] {
     border-radius: var(--window-border-radius, 10px);
     max-width: 300px;
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 .mdc-dialog__content > h3 {
     color: var(--header-text-color, #fff);
@@ -334,6 +346,10 @@ input[type=number] {
 /* Divider */
 .mdc-list-divider {
     border-color: var(--sep-border-color);
+}
+/* Radio button */
+.mdc-radio .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle {
+    border-color: var(--heavy-sep-border);
 }
 
 /* ====== Custom scrollbar ======= */
