@@ -22,8 +22,8 @@
     <!-- Preload important assets -->
     <link rel="prefetch" href="assets/img/main-bg.webp">
 
-    <!-- Roboto and Roboto Slab font --><link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Roboto and Roboto Slab font -->
+    <link rel="stylesheet" href="assets/fonts/roboto.min.css">
 
     <!-- Favicon and other icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
@@ -47,6 +47,12 @@
     <span class="mdc-fab__icon material-icons">info</span>
 </button>
 <!------>
+<!-- Info Snackbar -->
+<div class="mdc-snackbar" data-mdc-auto-init="MDCSnackbar" id="msg-snackbar">
+    <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+        <div class="mdc-snackbar__label" aria-atomic="false"></div>
+    </div>
+</div>
 <!-- Content root -->
 <div class="root center-self">
     <!-- Sidebar -->
@@ -253,6 +259,36 @@
             </div>
             <div class="mdc-dialog__scrim"></div>
         </div>
+        <!-- Results dialog -->
+        <div class="expanded-dialog mdc-dialog" data-mdc-auto-init="MDCDialog" id="results-dialog">
+            <div class="mdc-dialog__container">
+                <div class="mdc-dialog__surface"
+                     role="alertdialog"
+                     aria-modal="true"
+                     aria-labelledby="results-title"
+                     aria-describedby="results-content">
+                    <div class="mdc-dialog__title text-centered" id="results-title">
+                        <i class="material-icons font-size-75 margin-top-10">calculate</i>
+                        <h3 class="margin-top-0 margin-bottom-0"><b>Results</b></h3>
+                    </div>
+                    <!------>
+                    <div class="mdc-dialog__content text-centered" id="results-content" style="padding-bottom:10px">
+                        <pre class="margin-bottom-0" id="qns_output"></pre>
+                    </div>
+                    <div class="mdc-dialog__actions margin-right-10 margin-left-10 margin-bottom-10">
+                        <button class="mdc-button mdc-button--outlined width-100 mdc-dialog__button" data-mdc-dialog-action="close">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Close</span>
+                        </button>
+                        <button class="mdc-button mdc-button--raised width-100 mdc-dialog__button" data-mdc-dialog-action="print">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Print</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mdc-dialog__scrim"></div>
+        </div>
         <!------>
         <h2 class="mdc-typography--headline4 margin-top-0 margin-bottom-0"><b>Math Quadratic Equation Generator</b></h2>
         <!------>
@@ -272,28 +308,30 @@
                 <p>Range of answers (-300 to 300)</p>
                 <!------>
                 <div class="display-block margin-bottom-10">
-                    <label class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                    <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--label-floating" id="ans-min"
+                           data-mdc-auto-init="MDCTextField">
                         <span class="mdc-notched-outline">
                             <span class="mdc-notched-outline__leading"></span>
                             <span class="mdc-notched-outline__notch">
-                                <span class="mdc-floating-label" id="ans-min">Min</span>
+                                <span class="mdc-floating-label" id="ans-min-label">Min</span>
                             </span>
                             <span class="mdc-notched-outline__trailing"></span>
                         </span>
-                        <input type="number" class="mdc-text-field__input" aria-labelledby="ans-min" style="width:30px" min="-300" max="300">
+                        <input type="number" class="mdc-text-field__input" aria-labelledby="ans-min-label" style="width:30px" min="-300" max="300" value="-10">
                     </label>
                     <!------>
                     <p class="display-inline"><b>&nbsp;to&nbsp;</b></p>
                     <!------>
-                    <label class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                    <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--label-floating" id="ans-max"
+                           data-mdc-auto-init="MDCTextField">
                         <span class="mdc-notched-outline">
                             <span class="mdc-notched-outline__leading"></span>
                             <span class="mdc-notched-outline__notch">
-                                <span class="mdc-floating-label" id="ans-max">Max</span>
+                                <span class="mdc-floating-label" id="ans-max-label">Max</span>
                             </span>
                             <span class="mdc-notched-outline__trailing"></span>
                         </span>
-                        <input type="number" class="mdc-text-field__input" aria-labelledby="ans-max" style="width:30px" min="-300" max="300">
+                        <input type="number" class="mdc-text-field__input" aria-labelledby="ans-max-label" style="width:30px" min="-300" max="300" value="10">
                     </label>
                 </div>
                 <!------>
@@ -414,13 +452,11 @@
                     </div>
                 </div>
                 <!-- Generate button -->
-                <button class="mdc-button mdc-button--raised display-block margin-top-20 width-100" data-mdc-auto-init="MDCRipple">
+                <button class="mdc-button mdc-button--raised display-block margin-top-20 width-100" id="start_gen"
+                        data-mdc-auto-init="MDCRipple">
                     <span class="mdc-button__ripple"></span>
                     <span class="mdc-button__label">Generate Questions</span>
                 </button>
-                <div class="mdc-card width-100 margin-top-10">
-                    <p>No results yet</p>
-                </div>
             </div>
             <!------>
         </div>

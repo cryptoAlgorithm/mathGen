@@ -309,6 +309,9 @@ input[type=number] {
 .mdc-dialog .mdc-dialog__scrim {
     background-color: var(--scrim-bg);
 }
+.mdc-dialog .mdc-dialog__title {
+    color: var(--header-text-color, #fff);
+}
 /* Outlined buttons */
 .mdc-button--outlined:not(:disabled) {
     border-color: var(--sep-border-color);

@@ -72,13 +72,13 @@ function format_coeff3(y) {
     return y;
 }
 
-const MIN_RANGE = -10;
-const MAX_RANGE = 11;
+let MIN_RANGE = -10;
+let MAX_RANGE = 10;
 
 const COMMON_MIN_RANGE = 2;
 const COMMON_MAX_RANGE = 6;
 
-const LENGTH_MIN_RANGE = 2;
+const LENGTH_MIN_RANGE = 4;
 const LENGTH_MAX_RANGE = 6;
 
 const vars = ['a', 'b', 'c', 'd', 'm', 'n', 'p', 'q', 's', 't', 'x', 'y'];
@@ -99,8 +99,11 @@ function _general_formula() {
     }
     let x1 = (-b + Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
     let x2 = (-b - Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
-    while (!isInt(x1) || !isInt(x2)) {
-
+    while (!isInt(x1) || !isInt(x2) ||
+    	b ** 2 - 4 * a * c < 0 ||
+    b === 0 ||
+    c === 0 ||
+    gcd(a, gcd(b, c)) !== 1) {
         a = randrange(MIN_RANGE, MAX_RANGE)
         b = randrange(MIN_RANGE, MAX_RANGE)
         c = randrange(MIN_RANGE, MAX_RANGE)
@@ -127,13 +130,10 @@ function general_formula(a, b, c, use_vars, x1, x2) {
 
 
 // Testing
-for (let i = 0; i < 10; i++) {
-    const {a, b, c, use_vars, x1, x2} = _general_formula();
-    console.log(general_formula(a, b, c, use_vars, x1, x2))
-}
+
 
 // ========================
-// common_formula.py
+// common_factor.py
 
 function common_factor() {
     const length = randrange(LENGTH_MIN_RANGE, LENGTH_MAX_RANGE);
@@ -147,11 +147,10 @@ function common_factor() {
         else qn += format_coeff2(r *factor) + use_vars[i];
     }
 
-    return qn
+    return {qn: qn};
 }
 
 // Testing
-for (let i = 0; i < 10; i++) console.log(common_factor());
 
 
 // ========================
@@ -190,18 +189,14 @@ function trinomial(a, b, c, use_vars, x1, x2) {
     b = format_coeff2(b)
     c = format_coeff2(c)
 
-    const question = `${a}${use_vars[0]}²${b}${use_vars[0]}${c} = 0`
+    const qn = `${a}${use_vars[0]}²${b}${use_vars[0]}${c} = 0`
 
-    return { question, x1, x2 };
+    return { qn, x1, x2 };
 }
 
 
 
 // Testing
-for (let i = 0; i < 10; i++) {
-    const {a, b, c, use_vars, x1, x2} = _trinomial();
-    console.log(trinomial(a, b, c, use_vars, x1, x2));
-}
 
 
 // ========================
@@ -241,10 +236,6 @@ function grouping(a, b, x, y, use_vars) {
 
 
 // Testing
-for (let i = 0; i < 10; i++) {
-    const {a, b, x, y, use_vars} = _grouping();
-    console.log(grouping(a, b, x, y, use_vars));
-}
 
 
 // ========================
@@ -272,7 +263,6 @@ function common_trinomial() {
 
 
 // Testing
-for (let i = 0; i < 10; i++) console.log(common_trinomial());
 
 // ========================
 // perfect_square.py
@@ -315,10 +305,44 @@ function perfect_square(a, b, c, use_vars, two_var) {
         qn = `${a}${use_vars[0]}²${b}${use_vars[0]}${c} = 0`;
     }
 
-    return qn
+    return {qn: qn};
 }
 
-for (let i = 0; i < 10; i++) {
-    const {a, b, c, use_vars, two_var} = _perfect_square();
-    console.log(perfect_square(a, b, c, use_vars, two_var));
+
+// Global testing
+function lib_test() {
+	console.log('General Formula');
+	for (let i = 0; i < 10; i++) {
+	    const {a, b, c, use_vars, x1, x2} = _general_formula();
+	    console.log(general_formula(a, b, c, use_vars, x1, x2))
+	}
+	console.log('Common Factor');
+	for (let i = 0; i < 10; i++) console.log(common_factor());
+	console.log('Trinomial');
+	for (let i = 0; i < 10; i++) {
+	    const {a, b, c, use_vars, x1, x2} = _trinomial();
+	    console.log(trinomial(a, b, c, use_vars, x1, x2));
+	}
+	console.log('Grouping');
+	for (let i = 0; i < 10; i++) {
+	    const {a, b, x, y, use_vars} = _grouping();
+	    console.log(grouping(a, b, x, y, use_vars));
+	}
+	console.log('Common factor + trinomial');
+	for (let i = 0; i < 10; i++) console.log(common_trinomial());
+	console.log('Perfect square');
+	for (let i = 0; i < 10; i++) {
+	    const {a, b, c, use_vars, two_var} = _perfect_square();
+	    console.log(perfect_square(a, b, c, use_vars, two_var));
+	}
+
+    const start = new Date();
+    let results = [];
+    for (let i = 0; i < 1000; i++) {
+        const {a, b, x, y, use_vars} = _grouping();
+        results.push(grouping(a, b, x, y, use_vars).qn);
+    }
+    console.log('Time:', new Date() - start);
 }
+
+lib_test();
