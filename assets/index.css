@@ -196,6 +196,13 @@ hr {
 .margin-right-10 {
     margin-right: 10px;
 }
+/* Paddings */
+.padding-top-0 {
+    padding-top: 0;
+}
+.padding-bottom-0 {
+    padding-bottom: 0;
+}
 /* Widths */
 .width-100 {
     width: 100%;

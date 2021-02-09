@@ -1,5 +1,16 @@
 const $ = (e) => { return document.getElementById(e) }
 
+const checkboxClickListener = (e) => {
+    console.log('event')
+    $('grp-mdc').MDCCheckbox.disabled = true;
+    $('per-sq-mdc').MDCCheckbox.disabled = true;
+    $('tri-mdc').MDCCheckbox.disabled = true;
+    $('general-form-mdc').MDCCheckbox.disabled = true;
+    if (e.target.checked) {
+        e.target.disabled = false;
+    }
+}
+
 const showMSG = (msg) => {
     const snackbar = $('msg-snackbar')  .MDCSnackbar;
     snackbar.labelText = msg;
@@ -7,11 +18,14 @@ const showMSG = (msg) => {
 }
 
 const resetFactOps = () => {
+    $('c-factor').checked = false;
     $('grp').checked = false;
     $('per-sq').checked = false;
     $('tri').checked = false;
     $('general-form').checked = false;
 }
+
+$('reset-methods').onclick = resetFactOps;
 
 const VERSION_CODE = "0.1.3"
 

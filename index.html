@@ -62,7 +62,7 @@
         <!------>
         <hr class="margin-bottom-0">
         <!------>
-        <ul class="mdc-list mdc-menu__items" data-mdc-auto-init="MDCList" role="listbox"
+        <ul class="mdc-list mdc-menu__items padding-bottom-0" data-mdc-auto-init="MDCList" role="listbox"
             aria-label="Choose factorisation methods below">
             <li class="mdc-list-item" role="option" tabindex="0">
                 <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
@@ -81,90 +81,67 @@
                         </div>
                         <div class="mdc-checkbox__ripple"></div>
                     </div>
-                    <label for="c-factor">Common Factor</label>
                 </div>
-            </li>
-            <li class="mdc-list-item" role="option">
-                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
-                    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
-                        <input type="checkbox"
-                               class="mdc-checkbox__native-control"
-                               id="grp"/>
-                        <div class="mdc-checkbox__background">
-                            <svg class="mdc-checkbox__checkmark"
-                                 viewBox="0 0 24 24">
-                                <path class="mdc-checkbox__checkmark-path"
-                                      fill="none"
-                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                            </svg>
-                            <div class="mdc-checkbox__mixedmark"></div>
-                        </div>
-                        <div class="mdc-checkbox__ripple"></div>
-                    </div>
-                    <label for="grp">Grouping</label>
-                </div>
-            </li>
-            <li class="mdc-list-item" role="option">
-                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
-                    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
-                        <input type="checkbox"
-                               class="mdc-checkbox__native-control"
-                               id="per-sq"/>
-                        <div class="mdc-checkbox__background">
-                            <svg class="mdc-checkbox__checkmark"
-                                 viewBox="0 0 24 24">
-                                <path class="mdc-checkbox__checkmark-path"
-                                      fill="none"
-                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                            </svg>
-                            <div class="mdc-checkbox__mixedmark"></div>
-                        </div>
-                        <div class="mdc-checkbox__ripple"></div>
-                    </div>
-                    <label for="per-sq">Perfect Square</label>
-                </div>
-            </li>
-            <li class="mdc-list-item" role="option">
-                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
-                    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
-                        <input type="checkbox"
-                               class="mdc-checkbox__native-control"
-                               id="tri"/>
-                        <div class="mdc-checkbox__background">
-                            <svg class="mdc-checkbox__checkmark"
-                                 viewBox="0 0 24 24">
-                                <path class="mdc-checkbox__checkmark-path"
-                                      fill="none"
-                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                            </svg>
-                            <div class="mdc-checkbox__mixedmark"></div>
-                        </div>
-                        <div class="mdc-checkbox__ripple"></div>
-                    </div>
-                    <label for="tri">Trinomial</label>
-                </div>
-            </li>
-            <li class="mdc-list-item" role="option">
-                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
-                    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
-                        <input type="checkbox"
-                               class="mdc-checkbox__native-control"
-                               id="general-form"/>
-                        <div class="mdc-checkbox__background">
-                            <svg class="mdc-checkbox__checkmark"
-                                 viewBox="0 0 24 24">
-                                <path class="mdc-checkbox__checkmark-path"
-                                      fill="none"
-                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                            </svg>
-                            <div class="mdc-checkbox__mixedmark"></div>
-                        </div>
-                        <div class="mdc-checkbox__ripple"></div>
-                    </div>
-                    <label for="general-form">General Formula</label>
-                </div>
+                <label for="c-factor">Common Factor</label>
             </li>
         </ul>
+        <!------>
+        <!-- Additional options (stacking) -->
+        <ul class="mdc-list mdc-menu__items padding-top-0" role="radiogroup" data-mdc-auto-init="MDCList" aria-label="Choose more factorisation methods:">
+            <li class="mdc-list-item" role="radio" aria-checked="false">
+                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
+                    <div class="mdc-radio" data-mdc-auto-init="MDCRadio">
+                        <input class="mdc-radio__native-control" type="radio" id="grp" name="demo-list-radio-item-group" value="1">
+                        <div class="mdc-radio__background">
+                            <div class="mdc-radio__outer-circle"></div>
+                            <div class="mdc-radio__inner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <label class="mdc-list-item__text" for="grp">Grouping</label>
+            </li>
+            <li class="mdc-list-item" role="radio" aria-checked="false">
+                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
+                    <div class="mdc-radio" data-mdc-auto-init="MDCRadio">
+                        <input class="mdc-radio__native-control" type="radio" id="per-sq" name="demo-list-radio-item-group">
+                        <div class="mdc-radio__background">
+                            <div class="mdc-radio__outer-circle"></div>
+                            <div class="mdc-radio__inner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <label class="mdc-list-item__text" for="per-sq">Perfect Square</label>
+            </li>
+            <li class="mdc-list-item" role="radio" aria-checked="false">
+                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
+                    <div class="mdc-radio" data-mdc-auto-init="MDCRadio">
+                        <input class="mdc-radio__native-control" type="radio" id="tri" name="demo-list-radio-item-group">
+                        <div class="mdc-radio__background">
+                            <div class="mdc-radio__outer-circle"></div>
+                            <div class="mdc-radio__inner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <label class="mdc-list-item__text" for="tri">Trinomial</label>
+            </li>
+            <li class="mdc-list-item" role="radio" aria-checked="false">
+                <div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
+                    <div class="mdc-radio" data-mdc-auto-init="MDCRadio">
+                        <input class="mdc-radio__native-control" type="radio" id="general-form" name="demo-list-radio-item-group">
+                        <div class="mdc-radio__background">
+                            <div class="mdc-radio__outer-circle"></div>
+                            <div class="mdc-radio__inner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <label class="mdc-list-item__text" for="general-form">General Formula</label>
+            </li>
+        </ul>
+        <!-- Reset choices button -->
+        <button class="mdc-button margin-left-10 margin-right-10" data-mdc-auto-init="MDCRipple" id="reset-methods">
+            <span class="mdc-button__ripple"></span>
+            <span class="mdc-button__label">Reset chosen methods</span>
+        </button>
     </div>
     <!-- Main content starts here -->
     <main>

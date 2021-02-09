@@ -157,24 +157,20 @@ function common_factor() {
 // trinomial.py
 
 function _trinomial() {
-    let a = 0; let b = 0; let c = 0; let x1 = 0; let x2 = 0;
+    let a = 0, b = 0, c = 0, x1 = 0, x2 = 0, f1 = 0, f2 = 0;
 
-    while (gcd(a, gcd(b, c)) !== 1) {
+    while (gcd(a, gcd(b, c)) != 1 || b == 0) {
+        f1 = randrange(MIN_RANGE, MAX_RANGE)
+        f2 = randrange(MIN_RANGE, MAX_RANGE)
         x1 = randrange(MIN_RANGE, MAX_RANGE)
         x2 = randrange(MIN_RANGE, MAX_RANGE)
-        a = 0;
-        while (a === 0) a = randrange(MIN_RANGE, MAX_RANGE)
-
-        b = -(x1 + x2) * a;
-        c = x1 * x2 * a;
-
-        while (b === 0 || c === 0) {
-            x1 = randrange(MIN_RANGE, MAX_RANGE)
-            x2 = randrange(MIN_RANGE, MAX_RANGE)
-            b = -(x1 + x2) * a
-            c = x1 * x2 * a
-        }
-
+        while (f1 === 0) f1 = randrange(MIN_RANGE, MAX_RANGE)
+        while (f2 === 0) f2 = randrange(MIN_RANGE, MAX_RANGE)
+        while (x1 === 0) x1 = randrange(MIN_RANGE, MAX_RANGE)
+        while (x2 === 0) x2 = randrange(MIN_RANGE, MAX_RANGE)
+        a = x1 * x2;
+        b = f1 * x2 + f2 * x1;
+        c = f1 * f2;
     }
 
     const use_vars = sample(vars, 1);
