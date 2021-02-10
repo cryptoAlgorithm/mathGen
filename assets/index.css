@@ -61,6 +61,8 @@ body {
     --mdc-shape-small: 7px;
     --mdc-theme-text-primary-on-background: rgba(255, 255, 255, .87);
     --mdc-theme-text-icon-on-background: var(--content-text-color);
+    /* Custom scrollbar just for firefox */
+    scrollbar-color: rgb(107, 107, 107) rgb(43, 43, 43);
 }
 
 h1, h2 {
@@ -186,6 +188,9 @@ hr {
 }
 .margin-top-10 {
     margin-top: 20px;
+}
+.margin-top-5 {
+    margin-top: 5px;
 }
 .margin-left-20 {
     margin-left: 20px;
@@ -376,6 +381,10 @@ input[type=number] {
 
 /* Background of the scrollbar except button or resizer */
 ::-webkit-scrollbar-track {
+    background-color: rgb(43, 43, 43);
+}
+
+::-webkit-scrollbar-corner {
     background-color: rgb(43, 43, 43);
 }
 

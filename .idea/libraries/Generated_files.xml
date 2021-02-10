@@ -5,6 +5,7 @@
         <item url="file://$PROJECT_DIR$/assets/app.min.js" />
         <item url="file://$PROJECT_DIR$/assets/init.min.js" />
         <item url="file://$PROJECT_DIR$/assets/lib.min.js" />
+        <item url="file://$PROJECT_DIR$/assets/lib.min.min.js" />
         <item url="file://$PROJECT_DIR$/assets/material-components.min.js" />
       </sourceFilesUrls>
     </properties>
@@ -12,6 +13,7 @@
       <root url="file://$PROJECT_DIR$/assets/app.min.js" />
       <root url="file://$PROJECT_DIR$/assets/init.min.js" />
       <root url="file://$PROJECT_DIR$/assets/lib.min.js" />
+      <root url="file://$PROJECT_DIR$/assets/lib.min.min.js" />
       <root url="file://$PROJECT_DIR$/assets/material-components.min.js" />
     </CLASSES>
     <JAVADOC />
