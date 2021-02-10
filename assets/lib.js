@@ -89,16 +89,18 @@ function _general_formula() {
     let a = 0;
     let b = 0;
     let c = 0;
+
     while (b ** 2 - 4 * a * c < 0 ||
     b === 0 ||
     c === 0 ||
-    gcd(a, gcd(b, c)) !== 1) {
+    gcd(a, gcd(b, c)) !== 1 || isInt(x1) || isInt(x)) {
         a = randrange(MIN_RANGE, MAX_RANGE)
         b = randrange(MIN_RANGE, MAX_RANGE)
         c = randrange(MIN_RANGE, MAX_RANGE)
+        let x1 = (-b + Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
+        let x2 = (-b - Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
     }
-    let x1 = (-b + Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
-    let x2 = (-b - Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
+
     while (!isInt(x1) || !isInt(x2) ||
     	b ** 2 - 4 * a * c < 0 ||
     b === 0 ||
@@ -113,6 +115,8 @@ function _general_formula() {
     let use_vars = vars[randrange(0, vars.length)];
 
     return {a, b, c, use_vars, x1, x2};
+
+
 }
 
 

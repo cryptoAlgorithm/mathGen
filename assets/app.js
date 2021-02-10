@@ -27,7 +27,7 @@ const resetFactOps = () => {
 
 $('reset-methods').onclick = resetFactOps;
 
-const VERSION_CODE = "0.1.3"
+const VERSION_CODE = "0.1.5";
 
 // Set up onclick listeners
 $('more-info').onclick = () => {
@@ -52,9 +52,11 @@ $('app-ver').textContent = `App version: v${VERSION_CODE}`;
 $('start_gen').onclick = () => {
     // Set config vars based on user input
     // Check validity of input
-    const minRange = $('ans-min').MDCTextField.value;
-    const maxRange = $('ans-max').MDCTextField.value;
-    if (maxRange <= minRange || Math.abs(maxRange - minRange) < 2) {
+    const minTextField = $('ans-min').MDCTextField;
+    const maxTextField = $('ans-max').MDCTextField;
+    const minRange = minTextField.value;
+    const maxRange = maxTextField.value;
+    if (maxRange <= minRange || Math.abs(maxRange - minRange) < 2 || !maxTextField.valid || !minTextField.valid) {
         showMSG('Invalid minimum or maximum range');
         return;
     }
@@ -84,13 +86,27 @@ $('start_gen').onclick = () => {
             results.push(common_factor().qn);
         }
     }
-    else {
+    else if ($('general-form').checked) {
         for (let i = 0; i < 100; i++) {
             const {a, b, c, use_vars, x1, x2} = _general_formula();
             results.push(general_formula(a, b, c, use_vars, x1, x2).qn);
         }
     }
-    $('qns_output').textContent = results.join('\n');
+    else {
+        showMSG('No factorisation method(s) selected');
+        return;
+    }
+
+    let tableContent = '<table style="width:100%">';
+    let i = 1;
+    const numRows = 2;
+    results.forEach((eqn) => {
+        if ((i - 1) % numRows === 0 && i !== 0) tableContent += '</tr><tr>';
+        tableContent += `<td>${i}. </td><td>${eqn}</td>`;
+        i++;
+    });
+    tableContent += '</tr><td></td>';
+    $('results-content').innerHTML = tableContent;
     $('results-dialog').MDCDialog.open();
     console.log('Time:', new Date() - start);
     // console.log('Done')

@@ -244,23 +244,32 @@
                      aria-modal="true"
                      aria-labelledby="results-title"
                      aria-describedby="results-content">
-                    <div class="mdc-dialog__title text-centered" id="results-title">
+                    <div class="mdc-dialog__title text-centered padding-bottom-0" id="results-title">
                         <i class="material-icons font-size-75 margin-top-10">calculate</i>
                         <h3 class="margin-top-0 margin-bottom-0"><b>Results</b></h3>
                     </div>
                     <!------>
-                    <div class="mdc-dialog__content text-centered" id="results-content" style="padding-bottom:10px">
-                        <pre class="margin-bottom-0" id="qns_output"></pre>
-                    </div>
+                    <div class="mdc-dialog__content text-centered" id="results-content" style="padding-bottom:10px"></div>
                     <div class="mdc-dialog__actions margin-right-10 margin-left-10 margin-bottom-10">
                         <button class="mdc-button mdc-button--outlined width-100 mdc-dialog__button" data-mdc-dialog-action="close">
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Close</span>
                         </button>
-                        <button class="mdc-button mdc-button--raised width-100 mdc-dialog__button" data-mdc-dialog-action="print">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Print</span>
-                        </button>
+                        <div class="width-100">
+                            <button class="mdc-button mdc-button--raised mdc-dialog__button" style="margin:0 0 0 3px;width:calc(50% - 3px)"
+                                    data-mdc-dialog-action="copy">
+                                <span class="mdc-button__ripple"></span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">copy</i>
+                                <span class="mdc-button__label">Copy</span>
+                            </button>
+                            <button class="mdc-button mdc-button--raised mdc-dialog__button" style="margin:0 3px 0 0;width:calc(50% - 3px)"
+                                    data-mdc-dialog-action="print">
+                                <span class="mdc-button__ripple"></span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">print</i>
+                                <span class="mdc-button__label">Print</span>
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -310,6 +319,53 @@
                         </span>
                         <input type="number" class="mdc-text-field__input" aria-labelledby="ans-max-label" style="width:30px" min="-300" max="300" value="10">
                     </label>
+                </div>
+                <!------>
+                <p>Number of factors</p>
+                <!------>
+                <div class="mdc-slider mdc-slider--range mdc-slider--discrete mdc-slider--tick-marks" data-mdc-auto-init="MDCSlider">
+                    <input class="mdc-slider__input" type="range" min="2" max="10" value="2" step="1" name="rangeStart" aria-label="Discrete range slider demo">
+                    <input class="mdc-slider__input" type="range" min="2" max="10" value="6" step="1" name="rangeEnd" aria-label="Discrete range slider demo">
+                    <div class="mdc-slider__track">
+                        <div class="mdc-slider__track--inactive"></div>
+                        <div class="mdc-slider__track--active">
+                            <div class="mdc-slider__track--active_fill"></div>
+                        </div>
+                        <!-- Tick marks -->
+                        <div class="mdc-slider__tick-marks">
+                            <div class="mdc-slider__tick-mark--active"></div>
+                            <div class="mdc-slider__tick-mark--active"></div>
+                            <div class="mdc-slider__tick-mark--active"></div>
+                            <div class="mdc-slider__tick-mark--active"></div>
+                            <div class="mdc-slider__tick-mark--active"></div>
+                            <div class="mdc-slider__tick-mark--active"></div>
+                            <div class="mdc-slider__tick-mark--inactive"></div>
+                            <div class="mdc-slider__tick-mark--inactive"></div>
+                            <div class="mdc-slider__tick-mark--inactive"></div>
+                            <div class="mdc-slider__tick-mark--inactive"></div>
+                            <div class="mdc-slider__tick-mark--inactive"></div>
+                        </div>
+                    </div>
+                    <div class="mdc-slider__thumb">
+                        <div class="mdc-slider__value-indicator-container" aria-hidden="true">
+                            <div class="mdc-slider__value-indicator">
+                                <span class="mdc-slider__value-indicator-text">
+                                    20
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mdc-slider__thumb-knob"></div>
+                    </div>
+                    <div class="mdc-slider__thumb">
+                        <div class="mdc-slider__value-indicator-container" aria-hidden="true">
+                            <div class="mdc-slider__value-indicator">
+                                <span class="mdc-slider__value-indicator-text">
+                                    50
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mdc-slider__thumb-knob"></div>
+                    </div>
                 </div>
                 <!------>
                 <!-- Variable names -->

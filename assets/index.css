@@ -169,6 +169,9 @@ hr {
     display: block;
 }
 /* Margins */
+.margin-no {
+    margin: 0 !important;
+}
 .margin-bottom-0 {
     margin-bottom: 0;
 }
@@ -198,14 +201,17 @@ hr {
 }
 /* Paddings */
 .padding-top-0 {
-    padding-top: 0;
+    padding-top: 0 !important;
 }
 .padding-bottom-0 {
-    padding-bottom: 0;
+    padding-bottom: 0 !important;
 }
 /* Widths */
 .width-100 {
     width: 100%;
+}
+.width-50 {
+    width: 50%;
 }
 /* Font sizes */
 .font-size-75 {
