@@ -76,27 +76,31 @@ $('app-ver').textContent = `App version: v${VERSION_CODE}`;
 
 // ------
 // Creates a table with questions and add it to the target elem
-const constructQnTable = (targetElem, qns, options) => {
+const constructQnTable = (targetElem, qns, options, print = false) => {
     let tableContent = '';
 
+    if (print) {
+        tableContent += '<div class="printMsg">Reloading this window will cause generated questions to be lost</div>'
+    }
+
     // Header
-    tableContent += '<h2><b>NUSH Skool (Test header)</b></h2>';
+    if (options.header != null) tableContent += `<h2><b>${options.header}</b></h2>`;
 
     // Add name field
-    tableContent +=
-        '<p class="margin-no">Name: <span style="text-decoration:underline;white-space:pre">                                                     </span></p>';
+    if (options.name) tableContent +=
+        '<p style="margin:0">Name: <span style="letter-spacing:0px">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span></p>';
     // Class field
-    tableContent +=
-        '<p style="display:inline-block;margin-top:2px">Class: <span style="text-decoration:underline;white-space:pre">                  </span></p>';
+    if (options.class) tableContent +=
+        '<p style="display:inline-block;margin-top:2px">Class: <span style="letter-spacing:0px">＿＿＿＿＿＿＿＿＿＿</span></p>';
     // Date field
-    tableContent +=
-        '<p style="float:right;margin-top:2px">Date: <span style="text-decoration:underline;white-space:pre">                  </span></p>';
+    if (options.date) tableContent +=
+        '<p style="float:right;margin-top:2px">Date: <span style="letter-spacing:0px">＿＿＿＿＿＿＿＿＿＿</span></p>';
 
     tableContent += '<table>';
     let i = 1;
     qns.forEach((eqn) => {
         if ((i - 1) % options.rows === 0 && i !== 0) tableContent += '</tr><tr>';
-        tableContent += `<td>${i}. </td><td>${eqn}</td>`;
+        tableContent += `<td>${i}. </td><td class="qn">${eqn}</td>`;
         i++;
     });
     tableContent += '</tr><td></td>';
@@ -123,6 +127,10 @@ $('start_gen').onclick = () => {
         showMSG('Invalid minimum or maximum range');
         return;
     }
+
+    MIN_RANGE = minRange;
+    MAX_RANGE = maxRange;
+
     // Validate number of qns to generate
     const numQnsField = $('num-gen').MDCTextField;
     if (!numQnsField.valid) {
@@ -167,9 +175,14 @@ $('start_gen').onclick = () => {
         return;
     }
 
-    constructQnTable($('results-content'), results, {
-        rows: 2
-    });
+    const options = {
+        rows: 2,
+        name: true,
+        date: true,
+        class: true,
+        header: 'This is a test'
+    }
+    constructQnTable($('results-content'), results, options);
 
     // Open the dialog
     const dialog = $('results-dialog').MDCDialog
@@ -181,9 +194,7 @@ $('start_gen').onclick = () => {
                     'toolbars=0,width=720,height=640,left=200,top=200,scrollbars=1,resizable=1,modal=1,alwaysRaised=1');
 
                 win.onload = () => { // Add questions after page has loaded
-                    constructQnTable(win.document.body, results, {
-                        rows: 2
-                    });
+                    constructQnTable(win.document.body, results, options, true);
 
                     // Set afterprint event
                     window.onafterprint = () => {

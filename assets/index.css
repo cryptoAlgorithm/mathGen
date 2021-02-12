@@ -49,6 +49,7 @@ body {
     --scrim-bg: rgba(0, 0, 0, .4);
     --window-border-color: rgba(115, 115, 115, .5);
     --window-border-radius: 9px;
+    --overlay-shadows: 0 0 100px 8px rgba(0, 0, 0, .4);
     /* MDC Customisation vars */
     --mdc-checkbox-unchecked-color: #aaa;
     --mdc-theme-primary: #2295fc;
@@ -86,8 +87,7 @@ h3 {
     border-radius: var(--window-border-radius, 10px);
     max-width: 1000px;
     overflow: hidden;
-    box-shadow: 15px 15px 25px 0 rgba(0, 0, 0, .2),
-    -15px -15px 25px 0 rgba(0, 0, 0, .2);
+    box-shadow: var(--overlay-shadows);
     border: 1px solid var(--window-border-color, rgba(115, 115, 115, .5));
     transition: border-radius 1s ease-out;
 }
@@ -320,6 +320,7 @@ input[type=number] {
     max-width: 300px;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--overlay-shadows);
 }
 .mdc-dialog__content > h3 {
     color: var(--header-text-color, #fff);
