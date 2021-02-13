@@ -23,15 +23,13 @@ function sample(arr, n) {
     return result;
 }
 
-const isSquare = function (n) {
-    return n > 0 && Math.sqrt(n) % 1 === 0;
-};
-
 function randrange(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
+const randint = (min, realMax) => { return randrange(min, realMax + 1); }
 
 function gcd(x, y) {
     if ((typeof x !== 'number') || (typeof y !== 'number'))
@@ -90,15 +88,18 @@ function _general_formula() {
     let b = 0;
     let c = 0;
 
+    let x1 = 0;
+    let x2 = 0;
+
     while (b ** 2 - 4 * a * c < 0 ||
     b === 0 ||
     c === 0 ||
-    gcd(a, gcd(b, c)) !== 1 || isInt(x1) || isInt(x)) {
-        a = randrange(MIN_RANGE, MAX_RANGE)
-        b = randrange(MIN_RANGE, MAX_RANGE)
-        c = randrange(MIN_RANGE, MAX_RANGE)
-        let x1 = (-b + Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
-        let x2 = (-b - Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
+    gcd(a, gcd(b, c)) !== 1 || !isInt(x1) || !isInt(x2)) {
+        a = randint(MIN_RANGE, MAX_RANGE)
+        b = randint(MIN_RANGE, MAX_RANGE)
+        c = randint(MIN_RANGE, MAX_RANGE)
+        x1 = (-b + Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
+        x2 = (-b - Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
     }
 
     while (!isInt(x1) || !isInt(x2) ||
@@ -106,17 +107,15 @@ function _general_formula() {
     b === 0 ||
     c === 0 ||
     gcd(a, gcd(b, c)) !== 1) {
-        a = randrange(MIN_RANGE, MAX_RANGE)
-        b = randrange(MIN_RANGE, MAX_RANGE)
-        c = randrange(MIN_RANGE, MAX_RANGE)
+        a = randint(MIN_RANGE, MAX_RANGE)
+        b = randint(MIN_RANGE, MAX_RANGE)
+        c = randint(MIN_RANGE, MAX_RANGE)
         x1 = (-b + Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
         x2 = (-b - Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a);
     }
     let use_vars = vars[randrange(0, vars.length)];
 
     return {a, b, c, use_vars, x1, x2};
-
-
 }
 
 
@@ -140,13 +139,13 @@ function general_formula(a, b, c, use_vars, x1, x2) {
 // common_factor.py
 
 function common_factor() {
-    const length = randrange(LENGTH_MIN_RANGE, LENGTH_MAX_RANGE);
-    const factor = randrange(COMMON_MIN_RANGE, COMMON_MAX_RANGE);
+    const length = randint(LENGTH_MIN_RANGE, LENGTH_MAX_RANGE);
+    const factor = randint(COMMON_MIN_RANGE, COMMON_MAX_RANGE);
     const use_vars = sample(vars, length);
     let qn = '';
     for (let i = 0; i < length; i++) {
-        let r = randrange(MIN_RANGE, MAX_RANGE);
-        while (r === 0) r = randrange(MIN_RANGE, MAX_RANGE);
+        let r = randint(MIN_RANGE, MAX_RANGE);
+        while (r === 0) r = randint(MIN_RANGE, MAX_RANGE);
         if (i === 0) qn += format_coeff1(r * factor) + use_vars[i];
         else qn += format_coeff2(r *factor) + use_vars[i];
     }
@@ -164,14 +163,14 @@ function _trinomial() {
     let a = 0, b = 0, c = 0, x1 = 0, x2 = 0, f1 = 0, f2 = 0;
 
     while (gcd(a, gcd(b, c)) != 1 || b == 0) {
-        f1 = randrange(MIN_RANGE, MAX_RANGE)
-        f2 = randrange(MIN_RANGE, MAX_RANGE)
-        x1 = randrange(MIN_RANGE, MAX_RANGE)
-        x2 = randrange(MIN_RANGE, MAX_RANGE)
-        while (f1 === 0) f1 = randrange(MIN_RANGE, MAX_RANGE)
-        while (f2 === 0) f2 = randrange(MIN_RANGE, MAX_RANGE)
-        while (x1 === 0) x1 = randrange(MIN_RANGE, MAX_RANGE)
-        while (x2 === 0) x2 = randrange(MIN_RANGE, MAX_RANGE)
+        f1 = randint(MIN_RANGE, MAX_RANGE)
+        f2 = randint(MIN_RANGE, MAX_RANGE)
+        x1 = randint(MIN_RANGE, MAX_RANGE)
+        x2 = randint(MIN_RANGE, MAX_RANGE)
+        while (f1 === 0) f1 = randint(MIN_RANGE, MAX_RANGE)
+        while (f2 === 0) f2 = randint(MIN_RANGE, MAX_RANGE)
+        while (x1 === 0) x1 = randint(MIN_RANGE, MAX_RANGE)
+        while (x2 === 0) x2 = randint(MIN_RANGE, MAX_RANGE)
         a = x1 * x2;
         b = f1 * x2 + f2 * x1;
         c = f1 * f2;
@@ -206,15 +205,15 @@ function _grouping() {
     // generate an expression to be factorised in the form (x-a)(y-b)
     let a = 0; let b = 0; let x = 0; let y = 0;
     while (gcd(a * x, gcd(a * y, gcd(b * x, b * y))) !== 1) {
-        a = randrange(MIN_RANGE, MAX_RANGE);
-        b = randrange(MIN_RANGE, MAX_RANGE);
-        x = randrange(MIN_RANGE, MAX_RANGE);
-        y = randrange(MIN_RANGE, MAX_RANGE);
+        a = randint(MIN_RANGE, MAX_RANGE);
+        b = randint(MIN_RANGE, MAX_RANGE);
+        x = randint(MIN_RANGE, MAX_RANGE);
+        y = randint(MIN_RANGE, MAX_RANGE);
 
-        while (a === 0) a = randrange(MIN_RANGE, MAX_RANGE);
-        while (b === 0) b = randrange(MIN_RANGE, MAX_RANGE);
-        while (x === 0) x = randrange(MIN_RANGE, MAX_RANGE);
-        while (y === 0) y = randrange(MIN_RANGE, MAX_RANGE);
+        while (a === 0) a = randint(MIN_RANGE, MAX_RANGE);
+        while (b === 0) b = randint(MIN_RANGE, MAX_RANGE);
+        while (x === 0) x = randint(MIN_RANGE, MAX_RANGE);
+        while (y === 0) y = randint(MIN_RANGE, MAX_RANGE);
     }
 
 
@@ -243,21 +242,21 @@ function grouping(a, b, x, y, use_vars) {
 
 function common_grouping() {
     const {a, b, x, y, use_vars} = _grouping();
-    const factor = randrange(COMMON_MIN_RANGE, COMMON_MAX_RANGE);
+    const factor = randint(COMMON_MIN_RANGE, COMMON_MAX_RANGE);
     return grouping(a * factor, b * factor, x * factor, y * factor, use_vars);
 }
 
 
 function common_general_formula() {
     const {a, b, c, use_vars, x1, x2} = _general_formula();
-    const factor = randrange(COMMON_MIN_RANGE, COMMON_MAX_RANGE);
+    const factor = randint(COMMON_MIN_RANGE, COMMON_MAX_RANGE);
     return general_formula(a * factor, b * factor, c * factor, use_vars, x1, x2);
 }
 
 
 function common_trinomial() {
     const {a, b, c, use_vars, x1, x2} = _trinomial();
-    const factor = randrange(COMMON_MIN_RANGE, COMMON_MAX_RANGE);
+    const factor = randint(COMMON_MIN_RANGE, COMMON_MAX_RANGE);
     return trinomial(a * factor, b * factor, c * factor, use_vars, x1, x2);
 }
 
@@ -270,8 +269,8 @@ function common_trinomial() {
 function _perfect_square() {
     let a = 0; let b = 0; let c = 0;
     while (a === 0 || b === 0 || c === 0 || gcd(a, gcd(b, c)) !== 1) {
-        const x = randrange(MIN_RANGE, MAX_RANGE);
-        const y = randrange(MIN_RANGE, MAX_RANGE);
+        const x = randint(MIN_RANGE, MAX_RANGE);
+        const y = randint(MIN_RANGE, MAX_RANGE);
         a = x ** 2;
         b = 2 * x * y;
         c = y ** 2;
@@ -279,7 +278,7 @@ function _perfect_square() {
 
     let two_var = false;
     let use_vars;
-    if (randrange(2) === 1) {
+    if (randrange(0, 2) === 1) {
         use_vars = sample(vars, 2);
         two_var = true;
     }

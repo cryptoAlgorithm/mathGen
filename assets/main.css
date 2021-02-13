@@ -1,0 +1,331 @@
+/* Material Icons */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("./fonts/material-icons.woff2") format('woff2');
+}
+.material-icons {
+    font-family: 'Material Icons', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+
+    user-select: none; /* Prevent selection */
+}
+
+
+/* Body styles */
+body {
+    margin: 0;
+    min-height: 100vh;
+    height: 100vh;
+    /* Custom vars */
+    --sidebar-width: 200px;
+    --sep-border-color: rgba(255, 255, 255, .4);
+    --heavy-sep-border: rgba(255, 255, 255, .65);
+    --header-text-color: #fff;
+    --darker-surface-bg: rgba(18, 18, 18, .7);
+    --content-text-color: #cecece;
+    --scrim-bg: rgba(0, 0, 0, .4);
+    --window-border-color: rgba(115, 115, 115, .5);
+    --window-border-radius: 9px;
+    --overlay-shadows: 0 0 100px 8px rgba(0, 0, 0, .4);
+    --main-bg: #121212;
+    /* MDC Customisation vars */
+    --mdc-checkbox-unchecked-color: #aaa;
+    --mdc-theme-primary: #2295fc;
+    --mdc-theme-secondary: #ae3dc6;
+    --mdc-theme-surface: #333;
+    --mdc-typography-headline4-font-family: 'Roboto Slab', 'Roboto';
+    --mdc-typography-headline3-font-family: 'Roboto Slab', 'Roboto';
+    --mdc-typography-headline2-font-family: 'Roboto Slab', 'Roboto';
+    --mdc-typography-headline1-font-family: 'Roboto Slab', 'Roboto';
+    --mdc-shape-small: 7px;
+    --mdc-theme-text-primary-on-background: rgba(255, 255, 255, .87);
+    --mdc-theme-text-icon-on-background: var(--content-text-color);
+    /* Custom scrollbar just for firefox */
+    scrollbar-color: rgb(107, 107, 107) rgb(43, 43, 43);
+    /* Set background color */
+    background-color: var(--main-bg);
+}
+
+/* Text font and colors */
+h1, h2 {
+    color: var(--header-text-color, #fff);
+    transition: color 250ms;
+    font-family: var(--mdc-typography-headline2-font-family);
+}
+p, h3, h4, h5, h6, label, small {
+    color: var(--content-text-color, #fff);
+    transition: color 250ms;
+}
+h3 {
+    font-family: var(--mdc-typography-headline3-font-family);
+}
+
+hr {
+    border-color: var(--sep-border-color, rgba(255, 255, 255, .4));
+}
+
+
+/* Utility classes */
+/* Display */
+.display-inline {
+    display: inline;
+}
+.display-block {
+    display: block;
+}
+/* Margins */
+.margin-no {
+    margin: 0 !important;
+}
+.margin-bottom-0 {
+    margin-bottom: 0;
+}
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+.margin-top-0 {
+    margin-top: 0;
+}
+.margin-top-20 {
+    margin-top: 20px;
+}
+.margin-top-10 {
+    margin-top: 20px;
+}
+.margin-top-5 {
+    margin-top: 5px;
+}
+.margin-left-20 {
+    margin-left: 20px;
+}
+.margin-right-20 {
+    margin-right: 20px;
+}
+.margin-left-10 {
+    margin-left: 10px;
+}
+.margin-left-5 {
+    margin-left: 5px;
+}
+.margin-right-10 {
+    margin-right: 10px;
+}
+/* Paddings */
+.padding-top-0 {
+    padding-top: 0 !important;
+}
+.padding-bottom-0 {
+    padding-bottom: 0 !important;
+}
+/* Widths */
+.width-100 {
+    width: 100%;
+}
+.width-50 {
+    width: 50%;
+}
+/* Font sizes */
+.font-size-75 {
+    font-size: 75px;
+}
+/* Alignment */
+.text-centered {
+    text-align: center;
+}
+.center-self {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* Patch for broken MDC components */
+/* Outlined text field */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: var(--sep-border-color, #fff);
+    transition: border-color 200ms ease-in-out;
+}
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
+    border-color: var(--heavy-sep-border, #fff);
+}
+.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing,
+.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing,
+.mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,
+.mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,
+.mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
+    border-color: var(--mdc-theme-error, #b00020) !important;
+}
+.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-floating-label,
+.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-text-field__icon--trailing,
+.mdc-text-field--invalid:not(.mdc-text-field--disabled).mdc-text-field--invalid+.mdc-text-field-helper-line .mdc-text-field-helper-text--validation-msg {
+    color: var(--mdc-theme-error, #b00020) !important;
+}
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: var(--content-text-color);
+}
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: var(--mdc-theme-primary)
+}
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    color: var(--header-text-color, #fff);
+}
+/* Chips */
+.mdc-chip, .mdc-chip:hover {
+    color: var(--header-text-color, #fff);
+}
+.mdc-chip {
+    background-color: var(--mdc-theme-surface);
+    transition: background-color .1s ease-in-out;
+}
+.mdc-chip.mdc-chip--selected {
+    background-color: var(--mdc-theme-secondary);
+}
+.mdc-chip .mdc-chip__checkmark-path {
+    stroke: var(--header-text-color);
+}
+.mdc-dialog .mdc-dialog__content {
+    color: var(--header-text-color);
+    overflow-x: hidden;
+}
+/* Dialogs */
+.mdc-dialog .mdc-dialog__surface {
+    background-color: var(--darker-surface-bg, #000);
+    border: 1px solid var(--window-border-color, rgba(115, 115, 115, .5));
+    border-radius: var(--window-border-radius, 10px);
+    max-width: 300px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--overlay-shadows);
+}
+.mdc-dialog__content > h3 {
+    color: var(--header-text-color, #fff);
+}
+.mdc-dialog .mdc-dialog__scrim {
+    background-color: var(--scrim-bg);
+}
+.mdc-dialog .mdc-dialog__title {
+    color: var(--header-text-color, #fff);
+}
+/* Outlined buttons */
+.mdc-button--outlined:not(:disabled) {
+    border-color: var(--sep-border-color);
+}
+/* Raised buttons */
+.mdc-button.mdc-button--raised {
+    --mdc-theme-primary: #1976d2;
+}
+.mdc-button--raised:disabled {
+    color: var(--heavy-sep-border);
+    background-color: rgba(255, 255, 255, .05);
+}
+/* Ripple */
+:not(.mdc-list-item--disabled).mdc-evolution-list-item .mdc-list-item__ripple::after,
+:not(.mdc-list-item--disabled).mdc-evolution-list-item .mdc-list-item__ripple::before,
+:not(.mdc-list-item--disabled).mdc-list-item .mdc-list-item__ripple::after,
+:not(.mdc-list-item--disabled).mdc-list-item .mdc-list-item__ripple::before,
+.mdc-chip .mdc-chip__ripple::after, .mdc-chip .mdc-chip__ripple::before{
+    background-color: var(--header-text-color, #fff);
+}
+/* List */
+.mdc-list-item {
+    border-radius: var(--mdc-shape-small);
+}
+.mdc-drawer .mdc-list-item.mdc-list-item--activated, .mdc-drawer .mdc-list-item--activated .mdc-list-item__graphic {
+    color: var(--mdc-theme-primary);
+    transition: color .1s ease-in-out;
+}
+.mdc-drawer .mdc-list-item {
+    color: var(--mdc-theme-text-primary-on-background);
+}
+.mdc-drawer .mdc-drawer__subtitle, .mdc-drawer .mdc-list-group__subheader, .mdc-drawer .mdc-list-item__graphic {
+    color: var(--mdc-theme-text-icon-on-background);
+}
+/* Filled text fields */
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+    border-bottom-color: var(--sep-border-color);
+    transition: border-bottom-color 150ms ease-in-out;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before {
+    border-bottom-color: var(--mdc-theme-text-primary-on-background);
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--mdc-theme-surface);
+}
+.mdc-chip__text {
+    user-select: none;
+}
+/* Divider */
+.mdc-list-divider {
+    border-color: var(--sep-border-color);
+}
+/* Radio button */
+.mdc-radio .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle {
+    border-color: var(--heavy-sep-border);
+}
+/* Drawer */
+.mdc-drawer {
+    height: 100%;
+    max-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-y: auto;
+}
+
+/* ====== Custom scrollbar ======= */
+::-webkit-scrollbar {
+    background-color: #fff;
+    width: 14px
+}
+
+/* Background of the scrollbar except button or resizer */
+::-webkit-scrollbar-track {
+    background-color: rgb(43, 43, 43);
+}
+
+::-webkit-scrollbar-corner {
+    background-color: rgb(43, 43, 43);
+}
+
+/* scrollbar itself */
+::-webkit-scrollbar-thumb {
+    background-color: rgb(107, 107, 107);
+    border-radius: 14px;
+    border: 3px solid rgb(43, 43, 43);
+    transition: all 500ms ease-out;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(149, 149, 149);
+}

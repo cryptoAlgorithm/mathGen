@@ -1,12 +1,15 @@
 /* Bare-bones CSS for print page */
 .qnOutput {
-    font-family: -apple-system, Roboto, Helvetica, sans-serif;
-    font-size: 16px;
     --mdc-theme-primary: #2295fc;
+}
+
+.qnOutput > * {
+    font-family: -apple-system, Roboto, Helvetica, sans-serif !important;
 }
 
 .qnOutput > table {
     width: 100%;
+    margin-top: 10px;
 }
 
 /* Make native controls look nicer */
@@ -44,11 +47,16 @@
 }
 
 .qnOutput td {
-    padding: 4px;
+    padding: 8px 4px;
+}
+
+.qnOutput td:not(.qn) {
+    width: 1%;
+    white-space: nowrap;
 }
 
 .qnOutput td.qn {
-    font-family: Times, "Times New Roman", serif;
+    font-family: "Cambria", "Times New Roman", Times, serif !important;
 }
 
 .qnOutput.copy, .qnOutput.copy > * {
@@ -62,7 +70,7 @@
     .qnOutput {
         background-color: #fff;
         color: #000 !important;
-        font-size: 22px;
+        font-size: 17px;
     }
     .qnOutput > .printMsg {
         display: none;
