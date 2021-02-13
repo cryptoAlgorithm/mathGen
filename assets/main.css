@@ -49,6 +49,7 @@ body {
     --window-border-radius: 9px;
     --overlay-shadows: 0 0 100px 8px rgba(0, 0, 0, .4);
     --main-bg: #121212;
+    --top-app-bar-bg: var(--mdc-theme-surface);
     /* MDC Customisation vars */
     --mdc-checkbox-unchecked-color: #aaa;
     --mdc-theme-primary: #2295fc;
@@ -65,6 +66,11 @@ body {
     scrollbar-color: rgb(107, 107, 107) rgb(43, 43, 43);
     /* Set background color */
     background-color: var(--main-bg);
+}
+
+/* Sensible defaults */
+* {
+    padding-top: 0.1px; /* Prevent collapsing of margins */
 }
 
 /* Text font and colors */

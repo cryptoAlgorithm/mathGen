@@ -11,7 +11,7 @@ const $ = (e) => { return document.getElementById(e) }
 // ----------------------- //
 
 // Application version
-const VERSION_CODE = "0.1.5";
+const VERSION_CODE = "0.1.8";
 
 // Input fields
 const numGen = $('num-gen').MDCTextField;

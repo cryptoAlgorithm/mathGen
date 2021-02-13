@@ -1,1 +1,1 @@
-main{margin-left:255px}
+body{display:flex;height:100vh;scroll-behavior:smooth}.mdc-drawer-app-content{flex:auto;overflow:auto;position:relative}.main-content{overflow:auto;height:calc(100% - 32px)}.app-bar{position:absolute;--mdc-theme-primary: var(--top-app-bar-bg, #1565c0)}.mdc-top-app-bar{z-index:7}main{padding:16px}
